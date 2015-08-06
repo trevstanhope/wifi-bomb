@@ -1,0 +1,13 @@
+import curl
+import thread
+
+def get():
+    c = curl.Curl()
+    while True:
+        try:
+            s = c.get('192.168.0.1')
+        except Exception as e:
+            print str(e)
+
+for i in range(10):
+    thread.start_new_thread(get, (), {})
